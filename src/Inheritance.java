@@ -1,10 +1,26 @@
-class Vehicle{
+import java.util.Objects;
+
+class Vehicle extends Object
+{
+    String name;
     public String engine(String s ){
  //       System.out.println("engine installed");
         return s;
     }
     public String brakes(){
         return "Breaks addedd to the vehicle";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Vehicle vehicle = (Vehicle) o;
+        return Objects.equals(name, vehicle.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(name);
     }
 }
 class car extends Vehicle{
@@ -18,7 +34,7 @@ class car extends Vehicle{
     }
 }
 
-public class OOPS {
+public class Inheritance {
     public static void main(String[] args){
         car cc = new car();
         String result = cc.drive();
