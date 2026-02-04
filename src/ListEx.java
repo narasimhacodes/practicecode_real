@@ -1,4 +1,6 @@
 import java.util.*;
+import java.util.stream.Stream;
+
 // Duplicate should not allowed to arraylist using custom arraylist
 public class ListEx extends ArrayList{
     @Override
@@ -10,14 +12,20 @@ public class ListEx extends ArrayList{
     }
 
     public static void main(String[] args){
-        ListEx LL = new ListEx();
+  //      ListEx LL = new ListEx();
+        Map<Integer, String> m = new TreeMap<>(Comparator.reverseOrder());
+      List<Integer> LL = new ArrayList<>();
        LL.add(1);
        LL.add(2);
 
        LL.add(3);
        LL.add(1);
        LL.add(2);
-        System.out.println(LL);
+       for (Integer list : LL){
+           m.put(list, null);
+       }
+        System.out.println(m);
+
 
 
 

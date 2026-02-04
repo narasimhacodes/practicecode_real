@@ -1,50 +1,34 @@
-import java.util.Objects;
-
-class Vehicle extends Object
-{
-    String name;
-    public String engine(String s ){
- //       System.out.println("engine installed");
-        return s;
-    }
-    public String brakes(){
-        return "Breaks addedd to the vehicle";
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        Vehicle vehicle = (Vehicle) o;
-        return Objects.equals(name, vehicle.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(name);
+interface Vechle{
+    public void show();
+}
+interface Car {
+    default void show(){
+        System.out.println("This is car");
     }
 }
-class car extends Vehicle{
-    public String drive(){
-        return "driving the car";
-    }
+class a implements Vechle,Car{
 
     @Override
-    public String brakes() {
-        return "overrriding the brakes methods imn subclass";
+    public void show() {
+        Car.super.show();
+
+    }
+}
+class motor implements Vechle,Car{
+
+    @Override
+    public void show() {
+    }
+}
+class aa{
+    final void s(){
+        System.out.println("this is final");
     }
 }
 
 public class Inheritance {
     public static void main(String[] args){
-        car cc = new car();
-        String result = cc.drive();
-        String bb = cc.brakes();;
-       String res=  cc.engine("engine installed");
-        System.out.println(result);
-        System.out.println(res);
-        System.out.println(bb);
-
-
+        Vechle v = new motor();
+        v.show();
     }
 }
-
