@@ -25,6 +25,14 @@ public class FindOccurence {
         }
 
 
+        String str = "aabcccccddd";
+        Map<Character, Long> collect = str.chars().mapToObj((c -> (char) c)).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+        StringBuilder sb = new StringBuilder();
+    //    collect.forEach((k1, v1)-> System.out.print(k1+""+v1));
+        collect.forEach((k, v) -> sb.append(k.toString()+v.toString()));
+        System.out.println(sb);
+
+
 
 
 

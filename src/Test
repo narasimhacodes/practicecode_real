@@ -1,0 +1,21 @@
+leetcode -
+1.User should be able to view problems
+2.User should be able to solve a single problem.
+3.User should be able to submit code and get feedback (Pass/Fail).
+4.User should be able to participate in competitions and see a live leaderboard.
+
+entitys
+view-table ->  problem_id,status pass or fail, userid, date of submition, start time, end time.
+probelm-table-> problem statement,SNo,problem_id
+creadital-table - user name , passwords, userid,
+compnantey tabel -> userid , status -passed or failed,start time, end time.
+
+
+
+01,Null , phani, null, null, null;
+01,Null, Abi, null, null, null;
+
+Select problem statement from view-table where userid=1;
+
+
+

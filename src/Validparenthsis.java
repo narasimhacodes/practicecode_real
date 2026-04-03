@@ -18,8 +18,7 @@ public class Validparenthsis {
         public boolean validp(String str) {
             Stack<Character> st = new Stack<>();
 
-            for (
-                    char i = 0; i < str.length(); i++) {
+            for (char i = 0; i < str.length(); i++) {
                 char ch = str.charAt(i);
                 if (str.charAt(i) == '(') {
                     st.push(')');

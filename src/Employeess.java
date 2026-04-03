@@ -111,6 +111,25 @@ public class Employeess {
         Employeess e4 = new Employeess (46050455, "Need Smith", 28, "Male", "UI", LocalDate.of (2018,12,15), 70000);
 
         List<Employeess> employeeList = Arrays.asList (e, e1, e2, e3, e4);
+
+        List<String> collect16 = employeeList.stream()
+                .sorted(Comparator.comparing(Employeess::getEmpDept)
+                        .thenComparing(Employeess::getSalary, Comparator.reverseOrder())
+                        .thenComparing(Employeess::getEmpName)
+                ).map(i-> i.getEmpName()).collect(Collectors.toList());
+        System.out.println(collect16);
+
+        System.out.println("----------------------------------------------------------------");
+//    o convert a list of employees into a map (id as key and name as value
+        Map<Integer, String> collect14 = employeeList.stream().collect(Collectors.toMap(Employeess::getEmpId, Employeess::getEmpName));
+        System.out.println(collect14);
+        // get 2nd highest salary print the emp salary and dept
+        Optional<Employeess> first1 = employeeList.stream().sorted(Comparator.comparing(Employeess::getSalary)).skip(1).findFirst();
+        System.out.println(first1);
+        first1.ifPresent(emp -> System.out.println(emp.getSalary() + ":" + emp.getEmpDept()));
+
+        List<Employeess> collect13 = employeeList.stream().sorted(Comparator.comparing(Employeess::getEmpName).thenComparing(Employeess::getEmpDept)).collect(Collectors.toList());
+        System.out.println(collect13);
 // get count of all male and female
         final long count = employeeList.stream().filter(x -> x.getEmpGender() == "Male").count();
         final long count1 = employeeList.stream().filter(x -> x.getEmpGender() == "Female").count();

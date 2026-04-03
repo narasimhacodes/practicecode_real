@@ -3,7 +3,7 @@ import java.util.stream.IntStream;
 
 public class validParanthesis {
     public static boolean validPernthsis1(String s) {
-        Stack<Character> stack = new Stack<>();
+         Stack<Character> stack = new Stack<>();
         char[] charArray = s.toCharArray();
         for (char c : charArray) {
             if (c == '(')
@@ -40,7 +40,7 @@ public class validParanthesis {
 //        return count == 0;
 
     public static void main(String[] args) {
-        String s = "([}]{})";
+        String s = "([{}])";
         System.out.println(validPernthsis1(s) ? "This is valid parenthesis : Original String is " + s : "This is not valid parenthesis" + s );
     }
 }
